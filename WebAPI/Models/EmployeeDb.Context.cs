@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebAPI
+namespace WebAPI.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class empcs : DbContext
+    public partial class EmployeeEntities : DbContext
     {
-        public empcs()
-            : base("name=empcs")
+        public EmployeeEntities()
+            : base("name=EmployeeEntities")
         {
         }
     
@@ -25,6 +25,9 @@ namespace WebAPI
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<tblCountry> tblCountries { get; set; }
         public virtual DbSet<tblEmployee> tblEmployees { get; set; }
+        public virtual DbSet<tblGender> tblGenders { get; set; }
+        public virtual DbSet<tblHobby> tblHobbies { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace WebAPI.Controllers
 {
     public class EmpCrudController : ApiController
     {
-        empcs cs = new empcs();
+        EmployeeEntities cs = new EmployeeEntities();
 
         [HttpGet]
         public IHttpActionResult getemp()
@@ -25,23 +25,12 @@ namespace WebAPI.Controllers
             cs.SaveChanges();
             return Ok();
         }
-        
         [HttpGet]
         //[Route("~/Getempid/{id}")]
         public IHttpActionResult Getempid(int id)
         {
-            EmpClass empdetails = null;
-            empdetails = cs.tblEmployees.Where(x => x.EmployeeId == id).Select(x => new EmpClass()
-            {
-
-                EmployeeId = x.EmployeeId,
-                FirstName = x.FirstName,
-                LastName = x.LastName,
-                MobileNumber = x.MobileNumber,
-                Gender = x.Gender,
-                Email = x.Email,
-                HomeAddress = x.HomeAddress
-            }).FirstOrDefault<EmpClass>();
+            tblEmployee empdetails = null;
+            empdetails = cs.tblEmployees.Where(x => x.EmployeeId == id).FirstOrDefault<tblEmployee>();
 
             if (empdetails == null)
             {
@@ -49,28 +38,28 @@ namespace WebAPI.Controllers
             }
             return Ok(empdetails);
         }
-        public IHttpActionResult put(EmpClass ec)
+        public IHttpActionResult put(tblEmployee ec)
         {
             var updateemp = cs.tblEmployees.Where(x => x.EmployeeId == ec.EmployeeId).FirstOrDefault<tblEmployee>();
             if (updateemp != null)
             {
-                updateemp.EmployeeId = ec.EmployeeId;
                 updateemp.FirstName = ec.FirstName;
                 updateemp.LastName = ec.LastName;
                 updateemp.MobileNumber = ec.MobileNumber;
-                updateemp.Gender = ec.Gender;
                 updateemp.Email = ec.Email;
                 updateemp.HomeAddress = ec.HomeAddress;
+                updateemp.DateOfJoin = ec.DateOfJoin;
+                updateemp.GenderId = ec.GenderId;
+                updateemp.CountryId = ec.CountryId;
+                updateemp.HobbyId = ec.HobbyId;
                 cs.SaveChanges();
             }
             else
             {
                 return NotFound();
-
             }
             return Ok();
         }
-
         public IHttpActionResult Delete(int id)
         {
             var empdel = cs.tblEmployees.Where(x => x.EmployeeId == id).FirstOrDefault();

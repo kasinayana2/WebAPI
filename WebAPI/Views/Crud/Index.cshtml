@@ -1,10 +1,9 @@
-﻿@model IEnumerable<WebAPI.tblEmployee>
+﻿@model IEnumerable<WebAPI.Models.tblEmployee>
 
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
+<h2>Employee Application</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -21,7 +20,7 @@
             @Html.DisplayNameFor(model => model.MobileNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gender)
+            @Html.DisplayNameFor(model => model.tblGender.GenderName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Email)
@@ -29,35 +28,53 @@
         <th>
             @Html.DisplayNameFor(model => model.HomeAddress)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfJoin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblCountry.CountryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblHobby.HobbyName)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MobileNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HomeAddress)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmployeeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeId })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MobileNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.tblGender.GenderName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HomeAddress)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateOfJoin)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.tblCountry.CountryName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.tblHobby.HobbyName)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.EmployeeId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeId })
+    </td>
+</tr>
 }
 
 </table>

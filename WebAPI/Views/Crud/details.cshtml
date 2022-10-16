@@ -1,4 +1,4 @@
-﻿@model WebAPI.Models.EmpClass
+﻿@model WebAPI.Models.tblEmployee
 
 @{
     ViewBag.Title = "details";
@@ -10,13 +10,6 @@
     <h4>EmpClass</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.EmployeeId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EmployeeId)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.FirstName)
@@ -43,11 +36,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Gender)
+            @Html.DisplayNameFor(model => model.tblGender.GenderName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Gender)
+            @Html.DisplayFor(model => model.tblGender.GenderName)
         </dd>
 
         <dt>
@@ -65,7 +58,27 @@
         <dd>
             @Html.DisplayFor(model => model.HomeAddress)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfJoin)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.DateOfJoin)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tblCountry.CountryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblCountry.CountryName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tblHobby.HobbyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblHobby.HobbyName)
+        </dd>
     </dl>
 </div>
 <p>

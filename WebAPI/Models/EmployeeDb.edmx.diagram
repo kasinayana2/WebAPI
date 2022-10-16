@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9e40132a753845249417ca554fb58e62" Name="Diagram1">
+        <EntityTypeShape EntityType="EmployeeModel.tblCountry" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeModel.tblEmployee" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeModel.tblGender" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeModel.tblHobby" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="EmployeeModel.FK_tblEmployee_CountryId_tblCountry_CountryId" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeModel.FK_tblEmployee_GenderId_tblGender_GenderId" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeModel.FK_tblEmployee_HobbyId_tblHobby_HobbyId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
