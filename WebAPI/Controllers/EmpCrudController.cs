@@ -21,6 +21,11 @@ namespace WebAPI.Controllers
         [HttpPost]
         public IHttpActionResult empinsert(tblEmployee empinsert)
         {
+            if (empinsert.DateOfJoin == null)
+            {
+                empinsert.DateOfJoin = DateTime.Now;
+            }
+
             cs.tblEmployees.Add(empinsert);
             cs.SaveChanges();
             return Ok();
@@ -48,7 +53,7 @@ namespace WebAPI.Controllers
                 updateemp.MobileNumber = ec.MobileNumber;
                 updateemp.Email = ec.Email;
                 updateemp.HomeAddress = ec.HomeAddress;
-                updateemp.DateOfJoin = ec.DateOfJoin;
+                updateemp.DateOfJoin = ec.DateOfJoin == null ? DateTime.Now : ec.DateOfJoin;
                 updateemp.GenderId = ec.GenderId;
                 updateemp.CountryId = ec.CountryId;
                 updateemp.HobbyId = ec.HobbyId;

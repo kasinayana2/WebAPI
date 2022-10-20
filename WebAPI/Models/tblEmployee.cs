@@ -24,18 +24,17 @@ namespace WebAPI.Models
         [MinLength(10, ErrorMessage = "MobileNumber no should be 10 digit")]
         public string MobileNumber { get; set; }
         [Required(ErrorMessage = "Email Required")]
-        [EmailAddress]
         public string Email { get; set; }
         [Required(ErrorMessage = "HomeAddress Required")]
         public string HomeAddress { get; set; }
-        [Required(ErrorMessage = "DateOfJoin Required")]
         public Nullable<System.DateTime> DateOfJoin { get; set; }
         [Required(ErrorMessage = "Gender Required")]
         public Nullable<int> GenderId { get; set; }
         [Required(ErrorMessage = "Country Required")]
         public Nullable<int> CountryId { get; set; }
+
         public Nullable<int> HobbyId { get; set; }
-    
+
         public virtual tblCountry tblCountry { get; set; }
         public virtual tblGender tblGender { get; set; }
         public virtual tblHobby tblHobby { get; set; }
